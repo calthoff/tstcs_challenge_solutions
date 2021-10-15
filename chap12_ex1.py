@@ -1,4 +1,4 @@
-# still working on this challenge
+# not finished yet
 
 class Queue:
     def __init__(self):
@@ -6,11 +6,19 @@ class Queue:
         self.s2 = []
 
     def enqueue(self, item):
-        pass
-
+        self.s1.append(item)
 
     def dequeue(self):
-       pass
+        if len(self.s1) == 0:
+            raise Exception("Cannot pop from empty queue")
+        while len(self.s1) != 1:
+            item = self.s1.pop()
+            self.s2.append(item)
+        self.s1.pop()
+        while len(self.s2) > 0:
+            self.s1.append(self.s2.pop())
+        return item
+
 
 queue = Queue()
 queue.enqueue(1)
